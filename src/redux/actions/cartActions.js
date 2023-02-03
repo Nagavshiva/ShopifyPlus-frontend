@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { setLoading, setError, cartItemAdd, cartItemRemoval, setExpressShipping, clearCart } from '../slices/cart';
 
+const url = process.env.REACT_APP_ENDPOINT
+
 export const addCartItem = (id, qty) => async (dispatch) => {
   dispatch(setLoading(true));
   try {
-    const { data } = await axios.get(`/api/products/${id}`);
+    const { data } = await axios.get(`${url}/api/products/${id}`);
     const itemToAdd = {
       id: data._id,
       name: data.name,

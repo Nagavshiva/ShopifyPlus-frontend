@@ -6,10 +6,10 @@ import { useEffect } from 'react';
 
 const PayPalButton = ({ total, onPaymentSuccess, onPaymentError, disabled }) => {
   const [paypalClient, setPayPalClient] = useState(null);
-
+  const url = process.env.REACT_APP_ENDPOINT
   useEffect(() => {
     const paypalkey = async () => {
-      const { data: clientId } = await axios.get('/api/config/paypal');
+      const { data: clientId } = await axios.get(`${url}/api/config/paypal`);
       setPayPalClient(clientId);
     };
     paypalkey();
