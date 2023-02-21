@@ -4,11 +4,13 @@ import { setProducts, setLoading, setError, setProduct, productReviewed, resetEr
 
 const url = process.env.REACT_APP_ENDPOINT
 
+console.log(url)
+
 export const getProducts = () => async (dispatch) => {
   dispatch(setLoading(true));
   try {
-    const { data } = await axios.get(`${ process.env.REACT_APP_ENDPOINT}/api/products`);
-    localStorage.setItem('userInfo', JSON.stringify(data));
+    const { data } = await axios.get(`${url}/api/products`);
+    console.log(data)
     dispatch(setProducts(data));
   } catch (error) {
     dispatch(
@@ -26,7 +28,7 @@ export const getProducts = () => async (dispatch) => {
 export const getProduct = (id) => async (dispatch) => {
   dispatch(setLoading(true));
   try {
-    const { data } = await axios.get(`${ process.env.REACT_APP_ENDPOINT}/api/products/${id}`);
+    const { data } = await axios.get(`${url}/api/products/${id}`);
     dispatch(setProduct(data));
   } catch (error) {
     dispatch(
