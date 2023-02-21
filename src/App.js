@@ -30,6 +30,7 @@ function App() {
             <Route path='/checkout' element={<CheckoutScreen />} />
             <Route path='/your-orders' element={<YourOrdersScreen />} />
             <Route path='/admin-console' element={<AdminConsoleScreen />} />
+            <Route path = "*" element={<div>404 not found</div>}/>
           </Routes>
         </main>
         <Footer />

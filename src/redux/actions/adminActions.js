@@ -135,7 +135,7 @@ export const setDelivered = (id) => async (dispatch, getState) => {
         'Content-Type': 'application/json',
       },
     };
-    await axios.put(`${url}api/orders/${id}`, {}, config);
+    await axios.put(`${url}/api/orders/${id}`, {}, config);
     dispatch(setDeliveredFlag());
   } catch (error) {
     dispatch(
